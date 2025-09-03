@@ -61,7 +61,7 @@ NOMA-FBL-Secrecy/
 ## 👤 Author
 
 **Pronob Pramanik**  
-📧 Contact: (add your email if you want)  
+📧 Contact: (pronob.pramanik@gmail.com)  
 📌 Research focus: 5G/6G, URLLC, NOMA, Secrecy, Finite Blocklength Analysis  
 
 ---
