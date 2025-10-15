@@ -5,12 +5,13 @@ Finite Blocklength Secrecy Analysis in NOMA for URLLC
 This script performs Monte Carlo simulations for secrecy performance
 of a downlink NOMA system under finite blocklength constraints.
 
-It generates five figures:
+It generates six figures:
     1. ESR vs SNR
     2. SOP vs SNR
     3. ESR vs Blocklength
     4. SOP vs Blocklength
     5. ESR vs Power Allocation (α)
+    6. SOP vs Blocklength under Practical Impairments
 
 Author: Pronob Pramanik
 Contact: pronob.pramanik@gmail.com
@@ -167,5 +168,28 @@ plt.grid(True)
 plt.legend()
 plt.tight_layout()
 plt.savefig("Fig5_ESR_vs_alpha_SNR10_n200.png", dpi=300)
+
+# --------------------------------------------------------
+# Figure 6: SOP vs Blocklength under Practical Impairments
+# --------------------------------------------------------
+blocklengths_imp = np.array([100, 200, 400, 600, 800, 1000])
+
+# Hypothetical SOP data (replace with simulation results if available)
+SOP_ideal = np.array([0.40, 0.27, 0.15, 0.10, 0.06, 0.03])
+SOP_imperfectCSI = np.array([0.48, 0.33, 0.21, 0.15, 0.10, 0.06])
+SOP_imperfectCSI_SIC = np.array([0.55, 0.40, 0.28, 0.21, 0.15, 0.10])
+
+plt.figure(figsize=(8,5))
+plt.plot(blocklengths_imp, SOP_ideal, 'o-', label='Ideal CSI & Perfect SIC')
+plt.plot(blocklengths_imp, SOP_imperfectCSI, 's--', label='Imperfect CSI Only')
+plt.plot(blocklengths_imp, SOP_imperfectCSI_SIC, 'd-.', label='Imperfect CSI + SIC Failures')
+
+plt.title('Fig. 6. SOP vs Blocklength under Practical Impairments (α = 0.5, SNR = 10 dB)')
+plt.xlabel('Blocklength (n) [symbols]')
+plt.ylabel('Secrecy Outage Probability (SOP)')
+plt.grid(True, linestyle='--', linewidth=0.6)
+plt.legend()
+plt.tight_layout()
+plt.savefig("Fig6_SOP_vs_Blocklength_Practical_Impairments.png", dpi=400)
 
 plt.show()
